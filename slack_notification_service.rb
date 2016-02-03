@@ -24,6 +24,13 @@ class SlackNotificationSevice
 				#{transaction_details[:message]}.\n 
 				<https://#{@bt_env}.braintreegateway.com/merchants/#{@bt_merchant_id}/transactions/#{transaction_details[:id]}|See transaction #{transaction_details[:id]} in Braintree.>
 			")
+		else if transaction_details[:status] == "gateway_rejected"
+			@slackbot.notify("
+				Transaction Rejected in Braintree!\n
+				#{transaction_details[:customer_email]}'s payment for #{transaction_details[:amount]} was rejected with this message:\n
+				#{transaction_details[:message]}.\n 
+				<https://#{@bt_env}.braintreegateway.com/merchants/#{@bt_merchant_id}/transactions/#{transaction_details[:id]}|See transaction #{transaction_details[:id]} in Braintree.>
+			")
 		else 
 			@slackbot.notify("
 				Transaction Successful in Braintree!\n
@@ -44,5 +51,3 @@ class SlackNotificationSevice
 		details
 	end
 end
-
-lala = SlackNotificationSevice.new
