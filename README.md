@@ -10,6 +10,6 @@ Uses the [`slack-notify`](https://github.com/sosedoff/slack-notify) gem to wrap 
 
 ## Usage
 
-Once you've inscluded this is your app, and configured it with your [Slack webhook enpoint](https://api.slack.com/incoming-webhooks), you'd call simply pass a Braintree transaction object into it when it suits your needs:
+Once you've included this is your app, and configured it with your [Braintree API merchant id](https://articles.braintreepayments.com/control-panel/important-gateway-credentials) and [Slack webhook endpoint](https://api.slack.com/incoming-webhooks), you'd call simply pass a Braintree transaction object into it when it suits your needs:
 
 `SlackNotificationSevice.new.transaction_notification(braintree_transaction)`
